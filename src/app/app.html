@@ -1,21 +1,51 @@
-<mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button matButton>LIKE</button>
-    <button matButton>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<section class="grid grid-cols-5 gap-2 p-2">
+  @for(product of products(); track product){
+  <mat-card class="card" appearance="outlined">
+    <mat-card-header class="flex items-center">
+      @if (product.images.length) {
+      <div
+        mat-card-avatar
+        class="header-image"
+        [ngStyle]="{ 'background-image': `url(${product.images[0]})` }"
+      ></div>
+      }@else {
+      <div
+        mat-card-avatar
+        class="header-image"
+        style="background-image: url(https://material.angular.dev/assets/img/examples/shiba1.jpg)"
+      ></div>
+      }
+      <mat-card-title class="text-center">{{ product.title }}</mat-card-title>
+    </mat-card-header>
+    @if (product.images.length) {
+    <img
+      mat-card-image
+      ngSrc="{{ product.images[0] }}"
+      alt="Photo of a Product"
+      width="400"
+      height="400"
+      class="p-4"
+      priority
+    />
+    }@else {
+    <img
+      mat-card-image
+      src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+
+    }
+    <mat-card-content class="mb-auto">
+      <p class="mt-4">
+        {{ product.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button matButton>LIKE</button>
+      <button matButton>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  }
+</section>
 
 <router-outlet />
