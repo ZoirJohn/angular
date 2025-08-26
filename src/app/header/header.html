@@ -1,0 +1,26 @@
+<header>
+  <div class="container mx-auto">
+    <mat-sidenav-container class="sidenav-container">
+      <mat-toolbar color="primary" class="toolbar">
+        <span class="logo">Your Company</span>
+
+        <span class="spacer"></span>
+        <nav class="nav-links">
+          <button mat-button [matMenuTriggerFor]="productMenu">Product</button>
+          <a mat-button>Features</a>
+          <a mat-button>Marketplace</a>
+          <a mat-button>Company</a>
+          <a mat-button>Log in</a>
+        </nav>
+      </mat-toolbar>
+    </mat-sidenav-container>
+
+    <mat-menu #productMenu="matMenu">
+      <button mat-menu-item>Analytics</button>
+      <button mat-menu-item>Engagement</button>
+      <button mat-menu-item>Security</button>
+      <button mat-menu-item>Integrations</button>
+      <button mat-menu-item>Automations</button>
+    </mat-menu>
+  </div>
+</header>
