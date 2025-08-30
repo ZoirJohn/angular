@@ -2,6 +2,6 @@
         "editor.tabSize": 8,
         "prettier.tabWidth": 8,
         "prettier.printWidth": 8000,
-        "editor.wordWrapColumn": 800,
+        "editor.wordWrapColumn": 8000,
         "prettier.singleAttributePerLine": true
 }

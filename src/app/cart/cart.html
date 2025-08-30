@@ -1,0 +1,50 @@
+<div class="grid grid-cols-5 gap-2 p-2">
+  @for(product of cart(); track product){
+  <mat-card class="card col-start-1 col-end-6" appearance="outlined">
+    <div class="card-container w-1/4">
+      <mat-card-header class="flex items-center">
+        @if (product.images.length) {
+        <div mat-card-avatar class="header-image">
+          <div mat-card-avatar class="header-image">
+            <img [src]="product.images[0]" alt="photo" />
+          </div>
+        </div>
+        }@else {
+        <div
+          mat-card-avatar
+          class="header-image"
+          style="background-image: url(https://material.angular.dev/assets/img/examples/shiba1.jpg)"
+        ></div>
+        }
+        <mat-card-title class="text-center">{{ product.title }}</mat-card-title>
+      </mat-card-header>
+      @if (product.images.length) {
+      <img
+        mat-card-image
+        ngSrc="{{ product.images[0] }}"
+        alt="Photo of a Product"
+        width="400"
+        height="400"
+        class="p-4"
+        priority
+      />
+      }@else {
+      <img
+        mat-card-image
+        src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu"
+      />
+
+      }
+      <mat-card-content class="mb-auto">
+        <p class="mt-4">
+          {{ product.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button matButton (click)="deleteProductFromCart(product.id)">DELETE FROM CART</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+  }
+</div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
 import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbar } from '@angular/material/toolbar';
@@ -8,13 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   imports: [
     MatMenuModule,
-    MatIcon,
-    MatSidenav,
     MatListModule,
     MatToolbar,
     MatSidenavContainer,
@@ -23,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    RouterLink
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',

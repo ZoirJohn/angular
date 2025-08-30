@@ -21,6 +21,9 @@ html {
     )
   );
 }
+.container{
+  @apply max-w-[1920px] mx-auto
+}
 body {
   color-scheme: light;
   background-color: var(--mat-sys-surface);
