@@ -25,7 +25,7 @@ describe('Counter', () => {
   it('should be 0 when initialized', () => {
     const parent = fixture.nativeElement;
     const child = parent.querySelector('div');
-    expect(parseInt(child.innerText)).toBe(0);
+    expect(child.innerText).toBe('0');
   });
 
   it('should increase by 1 when clicked on increment button', () => {
@@ -34,7 +34,7 @@ describe('Counter', () => {
     const box = parent.querySelector('div');
     button.click();
     fixture.detectChanges();
-    expect(parseInt(box.innerText)).toBe(2);
+    expect(box.innerText).toBe('1');
   });
 
   it('should decrease by 1 when clicked on decrement button', () => {
@@ -43,6 +43,6 @@ describe('Counter', () => {
     const box = parent.querySelector('div');
     button.click();
     fixture.detectChanges();
-    expect(parseInt(box.innerText)).toBe(-12);
+    expect(box.innerText).toBe('-1');
   });
 });
