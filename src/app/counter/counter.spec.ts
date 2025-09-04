@@ -22,7 +22,7 @@ describe('Counter', () => {
     expect(buttons.length).toBe(2);
   });
 
-  it('should be 0 when initialized', () => {
+  it('should be 0', () => {
     const parent = fixture.nativeElement;
     const child = parent.querySelector('div');
     expect(child.innerText).toBe('0');
