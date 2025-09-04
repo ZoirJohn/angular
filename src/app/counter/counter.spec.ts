@@ -17,8 +17,32 @@ describe('Counter', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    const divs = fixture.debugElement.queryAll(By.css('div'));
-    expect(divs.length).toBe(3);
+  it('should create exactly three divs', () => {
+    const buttons = fixture.debugElement.queryAll(By.css('button'));
+    expect(buttons.length).toBe(2);
+  });
+
+  it('should be 0 when initialized', () => {
+    const parent = fixture.nativeElement;
+    const child = parent.querySelector('div');
+    expect(parseInt(child.innerText)).toBe(0);
+  });
+
+  it('should increase by 1 when clicked on increment button', () => {
+    const parent = fixture.nativeElement;
+    const button = parent.querySelector('#incrementBtn');
+    const box = parent.querySelector('div');
+    button.click();
+    fixture.detectChanges();
+    expect(parseInt(box.innerText)).toBe(2);
+  });
+
+  it('should decrease by 1 when clicked on decrement button', () => {
+    const parent = fixture.nativeElement;
+    const button = parent.querySelector('#decrementBtn');
+    const box = parent.querySelector('div');
+    button.click();
+    fixture.detectChanges();
+    expect(parseInt(box.innerText)).toBe(-12);
   });
 });
