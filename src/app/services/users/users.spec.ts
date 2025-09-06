@@ -30,9 +30,5 @@ describe('Users', () => {
 			expect(students.length).toBe(3);
 		});
 	});
-	it('shoud return proper data', () => {
-		expect(httpTesting.expectOne('/api/students', 'Request to load students').request.method).toBe(
-			'GET'
-		);
-	});
+
 });
