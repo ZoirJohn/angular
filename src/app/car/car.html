@@ -1,11 +1,23 @@
-<div class="row g-0 gap-4 p-5">
-	<div class="card col-3" app-car>
-		<img ngSrc="http://localhost:4200/assets/img/mitsubishi.webp" width="400" height="300" alt="car" priority>
-		<div class="card-body">
-			<p class="card-text">Mitsubishi Lancer Evolution 9</p>
-			<a href="#" class="btn btn-danger w-100">Delete</a>
+<div class="grid g-0 gap-4 p-5">
+	<div class="col-8">
+		@if (loading()) {
+		<div class="spinner-border" role="status">
+			<span class="visually-hidden"></span>
 		</div>
+		}
+		@if(cars().length){
+		@for (car of cars(); track car.id) {
+		<div class="card col-5" app-car>
+			<img [ngSrc]="car.preview" priority width="454" height="340" />
+			<div class="card-body">
+				<h5 class="card-text">{{car.name}} {{car.model}}</h5>
+				<p class="card-description">{{car.year}}</p>
+				<a href="#" class="btn btn-danger w-100" (click)="deleteCar(car)">Delete</a>
+			</div>
+		</div>
+		}}
 	</div>
+
 	<form [formGroup]="carForm" class="col-3" (ngSubmit)="submit()">
 		<label for="nameInput" class="form-label">Name of the car</label>
 		<input type="text" class="form-control" id="nameInput" placeholder="Name" aria-describedby="name"
@@ -14,6 +26,9 @@
 		<label for="textInput" class="form-label">Model of the car</label>
 		<input type="text" class="form-control" id="textInput" placeholder="Model" aria-describedby="model"
 			formControlName="model">
+		<label for="previewInput" class="form-label">Preview image</label>
+		<input type="text" class="form-control" id="previewInput" placeholder="Model" aria-describedby="model"
+			formControlName="preview">
 
 		<label for="yearInput" class="form-label">Year:</label>
 		<input type="number" step="1" class="form-control" id="yearInput"
